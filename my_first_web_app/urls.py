@@ -40,10 +40,16 @@ def about_me(request):
     response = render(request,'about_me.html', context)
     return HttpResponse(response)
 
+def favourites(request):
+    fave_links_list = ['']
+    context = {'fave_links': fave_links_list}
+    return HttpResponse(response)
+
 urlpatterns = [
     path('home/', home_page),
     path('portfolio/', portfolio),
     path('about_me/', about_me),
+    path('favourites', fave_links)
 ]
 
 
