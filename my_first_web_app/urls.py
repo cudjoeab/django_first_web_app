@@ -24,15 +24,29 @@ def home_page(request):
     return HttpResponse(response)
 
 def portfolio(request):
-    random_number = randint(0,100)
-    image_url = "https://picsum.photos/400/600/?image={}".format(random_number)
-    context = {'gallery_image': image_url}
+    image_urls = []
+    for i in range(5):
+        random_number = randint(0,100)
+        image_urls.append("https://picsum.photos/400/600/?image={}".format(random_number))
+
+    context = {'gallery_images': image_urls}
     response = render(request, 'gallery.html', context)
+    return HttpResponse(response)
+
+def about_me(request): 
+    
+
+    context = {
+        'skills': ['public speaker','artist', 'educator', 'joy curator'],
+        'interests': ['the state of humanity','self care as productivity', 'code-switching and intersectionality'] 
+        }
+    response = render(request,'about_me.html', context)
     return HttpResponse(response)
 
 urlpatterns = [
     path('home/', home_page),
     path('portfolio/', portfolio),
+    path('about_me/', about_me),
 ]
 
 
