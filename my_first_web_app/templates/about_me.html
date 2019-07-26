@@ -1,18 +1,30 @@
-<h1> About me</h1>
-<header>
-    A little bit about Abigail Cudjoe 
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1> About me</h1>
+    <header>
+        A little bit about Abigail Cudjoe 
+    </header>
+    
+    <h2>Skills</h2>
+    {% for skill in skills %}
+    <ul>
+        <li>{{skill}}</li>
+    </ul>
+    {% endfor %}
+    
+    <h2>Interests</h2>
+    {% for interest in interests %}
+    <ul>
+        <li>{{interest}}</li>
+    </ul>
+    {% endfor %}
+</body>
+</html>
 
-<h2>Skills</h2>
-{% for skill in skills %}
-<ul>
-    <li>{{skill}}</li>
-</ul>
-{% endfor %}
-
-<h2>Interests</h2>
-{% for interest in interests %}
-<ul>
-    <li>{{interest}}</li>
-</ul>
-{% endfor %}

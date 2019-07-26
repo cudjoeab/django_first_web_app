@@ -13,45 +13,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from random import randint
-from django.http import HttpResponse
-from django.shortcuts import render
+
 from django.urls import path
-
-def home_page(request):
-    context = {'name': 'Abigail Cudjoe'}
-    response = render(request, 'index.html', context)
-    return HttpResponse(response)
-
-def portfolio(request):
-    image_urls = []
-    for i in range(5):
-        random_number = randint(0,100)
-        image_urls.append("https://picsum.photos/400/600/?image={}".format(random_number))
-
-    context = {'gallery_images': image_urls}
-    response = render(request, 'gallery.html', context)
-    return HttpResponse(response)
-
-def about_me(request): 
-    skills_list = ['public speaker','artist', 'educator', 'joy curator']
-    interests_list = ['the state of humanity','self care as productivity', 'code-switching and intersectionality'] 
-    context = {'skills': skills_list , 'interests':interests_list}
-    response = render(request,'about_me.html', context)
-    return HttpResponse(response)
-
-def favourites(request):
-    fave_link = 'https://www.youtube.com/watch?v=F5WWyyYG018'
-    context = {'fave_links': fave_link}
-    response = render(request,'fave_links.html', context)
-    return HttpResponse(response)
+from my_first_web_app.views import root, gallery, home_page, portfolio, about_me, favourites
 
 urlpatterns = [
     path('home/', home_page),
     path('portfolio/', portfolio),
     path('about_me/', about_me),
     path('favourites/', favourites),
+    path('', root), #home redirect 
+    path('gallery/', gallery) #portfolio redirect 
 ]
+
 
 
 

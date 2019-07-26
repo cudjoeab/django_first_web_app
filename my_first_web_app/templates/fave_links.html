@@ -1,4 +1,20 @@
-<a href= "{{ fave_link }}" ><p>Check out my favourite video</p></a> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>Check out my favourite video:</p>
+    {% for favourite in Favourites %}
+    <a href= "https://www.youtube.com/watch?v=F5WWyyYG018">{{ favourite}}</a>
+    {% endfor %}
+</body>
+</html>
 
 
-<!-- the link is sucessful but does not bring me to the site...why?! -->
+
+
+
